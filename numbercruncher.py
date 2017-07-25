@@ -18,9 +18,9 @@ for i in save:
         active_count += 1
         active_value_total += save[i]['value']
 
-active_user_percentage = (active_count/(active_count+inactive_count))
+active_user_percentage = 100*(active_count/(active_count+inactive_count))
         
-active_value_percentage = (active_value_total/(active_value_total + inactive_value_total))
+active_value_percentage = 100*(active_value_total/(active_value_total + inactive_value_total))
 
 average_active_points = active_value_total/active_count
 
@@ -28,5 +28,13 @@ average_inactive_points = inactive_value_total/inactive_count
 
 average_points = (active_value_total+inactive_value_total)/(active_count+inactive_count)
 
-print(active_value_percentage)
+print("Active users represent %s%% of all users" % str(round(active_user_percentage,2)))
+
+print("Active users have %s%% of all points not in escrow in their accounts" % str(round(active_value_percentage,2)))
+
+print("The average inactive user has %s PucaPoints in their account" % str(round(average_inactive_points,1)))
+
+print("The average active user has %s PucaPoints in their account" % str(round(average_active_points,1)))
+
+
 
