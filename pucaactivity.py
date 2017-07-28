@@ -23,7 +23,7 @@ while(1):
         break
 
 while(1):
-    #print(len(save))
+    print(len(save))
     for i in range (1,41):
         randy = random.randint(1,180854)
 
@@ -70,11 +70,11 @@ while(1):
             rare = len(soup.find_all(class_="icon-puca-rare"))
 
             if uncommon > 0:
-                print("You're finding uncommons")
+                #print("You're finding uncommons")
                 account_type = 'uncommmon'
 
             if rare > 0:
-                print("You're finding rares")
+                #print("You're finding rares")
                 account_type = 'rare'
                     
 
@@ -150,22 +150,23 @@ while(1):
                 failed = 1
                 reason.append("never traded")
                 
-            if len(wants) == 0:
+            if len(cards) == 0:
                 #print("User %i: No Wants" % randy)
                 failed = 1
                 reason.append("no wants")
-            if most_recent_want_update < datetime.date(2017,1,1):
+                
+            if type(most_recent_want_update) == str:
+                failed = 1
+            elif most_recent_want_update < datetime.date(2017,1,1):
                 #print("User %i: Wants not updated since last year" % randy)
                 failed = 1
                 reason.append("wants not updated since last year")
 
-            most_recent_want_update = str(most_recent_want_update)
+        
 
                        
-        if failed == 0:
-            #print("User %i: Active User" % randy)
-            pass
-
+        most_recent_want_update = str(most_recent_want_update)
+        
         save[randy] = {"failed": failed,
                        "value": value,
                        "reason":list(reason),
@@ -174,6 +175,7 @@ while(1):
                        "most_recent_want_update":most_recent_want_update,
                        "account_type":account_type,
                        "cards":cards}
+        
 
         
 

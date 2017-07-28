@@ -22,7 +22,7 @@ while(1):
         break
 
 
-for i in range(1, 2841):
+for i in range(1, 2884):
     gotostring = "https://www.cardsphere.com/user/" + str(i)
     DRIVER.get(gotostring)
     
@@ -75,11 +75,12 @@ for i in range(1, 2841):
         recieved = int(userdata[4].text[17:].strip())
         value = float(userdata[5].text[11:].strip())
 
-    if (join_date == '2017-07-23' or
-        join_date == '2017-07-24' or
+    if (join_date == '2017-07-24' or
         join_date == '2017-07-25' or
         join_date == '2017-07-26' or
-        join_date == '2017-07-27'):
+        join_date == '2017-07-27' or
+        join_date == '2017-07-28' or
+        join_date == '2017-07-29'):
         continue
 
     
